@@ -4,9 +4,12 @@ def parse_opt():
     parser = argparse.ArgumentParser()
     
     parser.add_argument("--download_path", type=str, default="./download")
-    parser.add_argument("--type", type=str, default="video", help="video or playlist or audio")
-    parser.add_argument("--is_playlist", type=bool, default=False)
+    parser.add_argument("--type", type=str, default="video", choices=['video', 'audio'],help="video or audio")
+    parser.add_argument("--playlist", action="store_true")
     parser.add_argument("--url", type=str, default="https://www.youtube.com/watch?v=BBdC1rl5sKY", help="basic youtube url")
+    
+    parser.add_argument("--auto", action="store_true")
+    
     
     """args
     fps: Any | None = None,

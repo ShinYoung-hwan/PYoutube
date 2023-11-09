@@ -16,11 +16,14 @@ def clear_download_directory() -> None:
         file = os.path.join(DOWNLOAD_DIR, file)
         os.remove(file)
         
-def refactoring_download_path(opt_download_path: str):
+def refactoring_download_path(opt_download_path: str) -> str:
     if opt_download_path == "./download":
         return DOWNLOAD_DIR
     else:
         return opt_download_path
+    
+def refactoring_url(url: str) -> str:
+    return url.replace('\\', '')
 
 if __name__ == "__main__":
     pass
