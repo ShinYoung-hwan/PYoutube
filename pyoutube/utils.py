@@ -11,19 +11,22 @@ def create_dirctory(path: str) -> None:
         os.makedirs(path)
         print("Download Directory is created")
         
+def refactoring_download_path(opt_download_path: str) -> str:
+    download_dir = DOWNLOAD_DIR if opt_download_path == "./download" else opt_download_path
+    return download_dir
+
+def refactoring_url(url: str) -> str:
+    # 
+    return url.replace('\\', '')
+
+def refactoring_title(title: str) -> str:
+    # '/' is used to identify the path
+    return title.replace('/', '') 
+    
 def clear_download_directory() -> None:
     for file in os.listdir(DOWNLOAD_DIR):
         file = os.path.join(DOWNLOAD_DIR, file)
         os.remove(file)
-        
-def refactoring_download_path(opt_download_path: str) -> str:
-    if opt_download_path == "./download":
-        return DOWNLOAD_DIR
-    else:
-        return opt_download_path
     
-def refactoring_url(url: str) -> str:
-    return url.replace('\\', '')
-
 if __name__ == "__main__":
     pass
